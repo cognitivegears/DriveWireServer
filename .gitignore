@@ -34,3 +34,8 @@ hs_err_pid*
  
 # Mac
 .DS_Store
+
+
+lib/
+bin/
+classes/
