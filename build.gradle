@@ -1,0 +1,11 @@
+allprojects {
+	repositories {
+		mavenCentral()
+	}
+}
+
+subprojects {
+	version = '4.3.5'
+	apply plugin: 'java'
+}
+
