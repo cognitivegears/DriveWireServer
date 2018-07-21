@@ -5,7 +5,10 @@ allprojects {
 }
 
 subprojects {
-	version = '4.3.5'
+	version = '4.4.0'
 	apply plugin: 'java'
+	dependencies {
+		compile 'org.slf4j:slf4j-log4j12:1.8.0-beta2'
+	}
 }
 
