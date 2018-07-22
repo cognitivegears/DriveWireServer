@@ -14,4 +14,5 @@ dependencies {
     compile 'org.ostermiller:utils:1.07.00'
     compile 'commons-cli:commons-cli:1.4'
     compile 'org.apache.commons:commons-collections4:4.2'
+    compile 'com.fazecast:jSerialComm:2.0.2'
 }

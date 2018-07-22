@@ -1,13 +1,13 @@
 package com.groupunix.drivewireserver.dwprotocolhandler.vmodem;
 
-import gnu.io.NoSuchPortException;
-import gnu.io.PortInUseException;
-import gnu.io.UnsupportedCommOperationException;
 
 import java.io.IOException;
 import java.util.GregorianCalendar;
 import java.util.TooManyListenersException;
 
+import com.groupunix.drivewireserver.exception.NoSuchPortException;
+import com.groupunix.drivewireserver.exception.PortInUseException;
+import com.groupunix.drivewireserver.exception.UnsupportedCommOperationException;
 import org.apache.commons.configuration.HierarchicalConfiguration;
 import org.apache.log4j.Logger;
 

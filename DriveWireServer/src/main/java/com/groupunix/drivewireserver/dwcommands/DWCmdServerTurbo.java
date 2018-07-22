@@ -1,7 +1,8 @@
 package com.groupunix.drivewireserver.dwcommands;
 
-import gnu.io.UnsupportedCommOperationException;
 
+
+import com.groupunix.drivewireserver.exception.UnsupportedCommOperationException;
 import com.groupunix.drivewireserver.dwprotocolhandler.DWProtocol;
 import com.groupunix.drivewireserver.dwprotocolhandler.DWSerialDevice;
 
@@ -49,7 +50,7 @@ public class DWCmdServerTurbo extends DWCommand {
 			serdev.enableDATurbo();
 			text = "Device is now in DATurbo mode";
 		} 
-		catch (UnsupportedCommOperationException e) 
+		catch (UnsupportedCommOperationException e)
 		{
 			text = "Failed to enable DATurbo mode: " + e.getMessage();
 		}

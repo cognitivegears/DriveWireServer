@@ -1,34 +1,25 @@
 package com.groupunix.drivewireserver.dwprotocolhandler;
 
-import gnu.io.NoSuchPortException;
-import gnu.io.PortInUseException;
-import gnu.io.UnsupportedCommOperationException;
+
+import com.groupunix.drivewireserver.DWDefs;
+import com.groupunix.drivewireserver.DriveWireServer;
+import com.groupunix.drivewireserver.OS9Defs;
+import com.groupunix.drivewireserver.exception.NoSuchPortException;
+import com.groupunix.drivewireserver.exception.PortInUseException;
+import com.groupunix.drivewireserver.exception.UnsupportedCommOperationException;
+import com.groupunix.drivewireserver.dwdisk.DWDiskDrives;
+import com.groupunix.drivewireserver.dwexceptions.*;
+import com.groupunix.drivewireserver.dwhelp.DWHelp;
+import com.groupunix.drivewireserver.virtualprinter.DWVPrinter;
+import com.groupunix.drivewireserver.virtualserial.DWVPortTermThread;
+import com.groupunix.drivewireserver.virtualserial.DWVSerialPorts;
+import org.apache.commons.configuration.HierarchicalConfiguration;
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.TooManyListenersException;
-
-import org.apache.commons.configuration.HierarchicalConfiguration;
-import org.apache.log4j.Logger;
-
-import com.groupunix.drivewireserver.DWDefs;
-import com.groupunix.drivewireserver.DriveWireServer;
-import com.groupunix.drivewireserver.OS9Defs;
-import com.groupunix.drivewireserver.dwdisk.DWDiskDrives;
-import com.groupunix.drivewireserver.dwexceptions.DWCommTimeOutException;
-import com.groupunix.drivewireserver.dwexceptions.DWDriveNotLoadedException;
-import com.groupunix.drivewireserver.dwexceptions.DWDriveNotValidException;
-import com.groupunix.drivewireserver.dwexceptions.DWDriveWriteProtectedException;
-import com.groupunix.drivewireserver.dwexceptions.DWImageFormatException;
-import com.groupunix.drivewireserver.dwexceptions.DWInvalidSectorException;
-import com.groupunix.drivewireserver.dwexceptions.DWPortNotOpenException;
-import com.groupunix.drivewireserver.dwexceptions.DWPortNotValidException;
-import com.groupunix.drivewireserver.dwexceptions.DWSeekPastEndOfDeviceException;
-import com.groupunix.drivewireserver.dwhelp.DWHelp;
-import com.groupunix.drivewireserver.virtualprinter.DWVPrinter;
-import com.groupunix.drivewireserver.virtualserial.DWVPortTermThread;
-import com.groupunix.drivewireserver.virtualserial.DWVSerialPorts;
 
 
 
@@ -584,7 +575,7 @@ public class DWProtocolHandler implements Runnable, DWVSerialProtocol
 				((DWSerialDevice) protodev).enableDATurbo();
 				logger.info("Detected switch to 230k mode");
 			} 
-			catch (UnsupportedCommOperationException e) 
+			catch (UnsupportedCommOperationException e)
 			{
 				logger.error("comm port did not make the switch to 230k mode: " + e.getMessage());
 				logger.error("bail out!");

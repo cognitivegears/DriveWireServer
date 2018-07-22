@@ -7,7 +7,7 @@ import java.util.Iterator;
 
 import net.htmlparser.jericho.Source;
 
-import org.apache.commons.configuration.ex.ConfigurationException;
+import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.XMLConfiguration;
 import org.apache.log4j.Logger;
 
