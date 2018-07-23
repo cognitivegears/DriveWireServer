@@ -58,13 +58,13 @@ public class ChooseServerWin extends Dialog {
 
 	private void loadServerHistory() 
 	{
-		List<String> sh = MainWin.getServerHistory();
+		List<Object> sh = MainWin.getServerHistory();
 		
 		if (sh != null)
 		{
 			for (int i = sh.size() - 1;i > -1;i--)
 			{
-				this.cmbHost.add(sh.get(i));
+				this.cmbHost.add((String)sh.get(i));
 			}
 			
 		}

@@ -409,9 +409,9 @@ public class DiskStatusWin {
 		
 		if ( MainWin.getDiskHistory() != null)
 		{
-			for (String d : MainWin.getDiskHistory())
+			for (Object d : MainWin.getDiskHistory())
 			{
-				comboDiskPath.add(d, 0);
+				comboDiskPath.add((String)d, 0);
 			}
 		}
 		

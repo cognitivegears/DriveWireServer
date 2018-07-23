@@ -22,7 +22,8 @@ import org.eclipse.swt.widgets.ToolItem;
 import swing2swt.layout.BorderLayout;
 
 import com.groupunix.drivewireserver.dwdisk.filesystem.DWFileSystemDirEntry;
-import com.groupunix.drivewireui.CoCoView;
+// FIXME: CoCoView doesn't seem to exist in the project
+//import com.groupunix.drivewireui.CoCoView;
 import com.groupunix.drivewireui.DWLibrary;
 import com.groupunix.drivewireui.GradientHelper;
 import com.groupunix.drivewireui.MainWin;
@@ -34,7 +35,8 @@ public class BASICViewer extends FileViewer
 	private static final String TYPENAME = "BASIC Viewer";
 	private static final String TYPEIMAGE = "/filetypes/basic.png";
 	private Text txtSearch;
-	private CoCoView ccview;
+	// FIXME: CoCoView doesn't seem to exist in the project
+//	private CoCoView ccview;
 	private CCombo comboLine;
 	private Text viewAsciiText;
 	protected Composite compositeLayers;
@@ -83,11 +85,13 @@ public class BASICViewer extends FileViewer
 				
 				if ((txtSearch.getText() != null) && (!txtSearch.getText().equals("")))
 				{
-					ccview.search(txtSearch.getText());
+					// FIXME: CoCoView doesn't seem to exist in the project
+//					ccview.search(txtSearch.getText());
 				}
 				else
 				{
-					ccview.search(null);
+					// FIXME: CoCoView doesn't seem to exist in the project
+//					ccview.search(null);
 				}
 			}
 		});
@@ -104,11 +108,13 @@ public class BASICViewer extends FileViewer
 				
 				if ((txtSearch.getText() != null) && (!txtSearch.getText().equals("")))
 				{
-					ccview.search(txtSearch.getText());
+					// FIXME: CoCoView doesn't seem to exist int he project
+//					ccview.search(txtSearch.getText());
 				}
 				else
 				{
-					ccview.search(null);
+					//FIXME: CoCoView doesn't seem to exist in the project
+//					ccview.search(null);
 				}
 			}
 		});
@@ -138,8 +144,9 @@ public class BASICViewer extends FileViewer
 				
 				MainWin.config.setProperty("BasicViewer_columns", 32);
 				MainWin.config.setProperty("BasicViewer_rows", 16);
-				ccview.updateImg();
-				( (StackLayout) compositeLayers.getLayout()).topControl = ccview;
+				// FIXME: CoCoView doesn't seem to exist in the project
+//				ccview.updateImg();
+//				( (StackLayout) compositeLayers.getLayout()).topControl = ccview;
 				compositeLayers.layout();
 			}
 		});
@@ -155,8 +162,9 @@ public class BASICViewer extends FileViewer
 			public void widgetSelected(SelectionEvent e) {
 				MainWin.config.setProperty("BasicViewer_columns", 40);
 				MainWin.config.setProperty("BasicViewer_rows", 24);
-				ccview.updateImg();
-				( (StackLayout) compositeLayers.getLayout()).topControl = ccview;
+				// FIXME: CoCoView doesn't seem to exist in the project
+//				ccview.updateImg();
+//				( (StackLayout) compositeLayers.getLayout()).topControl = ccview;
 				compositeLayers.layout();
 			}
 		});
@@ -172,8 +180,9 @@ public class BASICViewer extends FileViewer
 			public void widgetSelected(SelectionEvent e) {
 				MainWin.config.setProperty("BasicViewer_columns", 80);
 				MainWin.config.setProperty("BasicViewer_rows", 24);
-				ccview.updateImg();
-				( (StackLayout) compositeLayers.getLayout()).topControl = ccview;
+				// FIXME: CoCoView doesn't seem to exist in the project
+//				ccview.updateImg();
+//				( (StackLayout) compositeLayers.getLayout()).topControl = ccview;
 				compositeLayers.layout();
 			}
 		});
@@ -216,7 +225,8 @@ public class BASICViewer extends FileViewer
 			{
 				try
 				{
-					ccview.findLine(Integer.parseInt(comboLine.getItem(comboLine.getSelectionIndex())));
+					// FIXME: CoCoView doesn't seem to exist in the project
+//					ccview.findLine(Integer.parseInt(comboLine.getItem(comboLine.getSelectionIndex())));
 				}
 				catch (NumberFormatException e1)
 				{
@@ -244,7 +254,8 @@ public class BASICViewer extends FileViewer
 			public void widgetSelected(SelectionEvent e)
 			{
 				MainWin.config.setProperty("BasicViewer_antialias", tltmAntialias.getSelection());
-				ccview.updateImg();
+				// FIXME: CoCoView doesn't seem to exist in the project
+//				ccview.updateImg();
 			}
 
 			@Override
@@ -259,14 +270,16 @@ public class BASICViewer extends FileViewer
 		
 		
 		compositeLayers.setLayout(new StackLayout());
-		
-		this.ccview= new CoCoView(compositeLayers, SWT.NONE);
+
+		// FIXME: CoCoView doesn't seem to exist in the project
+//		this.ccview= new CoCoView(compositeLayers, SWT.NONE);
 		
 		this.viewAsciiText = new Text(compositeLayers, SWT.MULTI | SWT.V_SCROLL | SWT.WRAP);
 		viewAsciiText.setEditable(false);
 		viewAsciiText.setFont(this.basicFont);
-		
-		( (StackLayout) compositeLayers.getLayout()).topControl = ccview;
+
+		// FIXME: CoCoView doesn't seem to exist in the project
+//		( (StackLayout) compositeLayers.getLayout()).topControl = ccview;
 		
 	}
 
@@ -274,29 +287,31 @@ public class BASICViewer extends FileViewer
 	@Override
 	public void viewFile(DWFileSystemDirEntry direntry, byte[] fc)
 	{
-		if (this.ccview != null)
-		{
-			if (!direntry.isAscii())
-			{
-				fc = DECBTokenize.detokenize(fc);
-			}
-			
-			ccview.setText(new String(fc).split("\r"));
-			viewAsciiText.setText(filterAscii(fc));
-			
-			this.comboLine.removeAll();
-			
-			if (ccview.getLineRefs() != null)
-			{
-				for (int i = 0; i < ccview.getLineRefs().size(); i++)
-				{
-					if (ccview.getLineRefs().get(i) != -1)
-					{
-						this.comboLine.add("" + ccview.getLineRefs().get(i));
-					}
-				}
-			}
-		}
+		// FIXME: CoCoView doesn't seem to exist in the project
+
+//		if (this.ccview != null)
+//		{
+//			if (!direntry.isAscii())
+//			{
+//				fc = DECBTokenize.detokenize(fc);
+//			}
+//
+//			ccview.setText(new String(fc).split("\r"));
+//			viewAsciiText.setText(filterAscii(fc));
+//
+//			this.comboLine.removeAll();
+//
+//			if (ccview.getLineRefs() != null)
+//			{
+//				for (int i = 0; i < ccview.getLineRefs().size(); i++)
+//				{
+//					if (ccview.getLineRefs().get(i) != -1)
+//					{
+//						this.comboLine.add("" + ccview.getLineRefs().get(i));
+//					}
+//				}
+//			}
+//		}
 		
 	}
 

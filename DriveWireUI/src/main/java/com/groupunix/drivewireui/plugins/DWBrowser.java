@@ -4,9 +4,9 @@ import java.lang.Thread.UncaughtExceptionHandler;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.vfs.FileObject;
-import org.apache.commons.vfs.FileSystemException;
-import org.apache.commons.vfs.VFS;
+import org.apache.commons.vfs2.FileObject;
+import org.apache.commons.vfs2.FileSystemException;
+import org.apache.commons.vfs2.VFS;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.browser.Browser;
 import org.eclipse.swt.browser.LocationAdapter;
@@ -421,7 +421,7 @@ public class DWBrowser extends Composite
 	protected void addBookmark(String url) 
 	{
 		
-		List<String> bm = MainWin.config.getList("Bookmark");
+		List bm = MainWin.config.getList("Bookmark");
 		
 		if (!bm.contains(url))
 			MainWin.config.addProperty("Bookmark", url);
@@ -435,8 +435,8 @@ public class DWBrowser extends Composite
 		
 		bm = MainWin.config.getList("Bookmark");
 		
-		for (String b : bm)
-			comboURL.add(b);
+		for (Object b : bm)
+			comboURL.add((String)b);
 		
 		comboURL.setText(tmp);
 	}
@@ -475,10 +475,10 @@ public class DWBrowser extends Composite
 		String tmp = comboURL.getText();
 		comboURL.removeAll();
 		
-		List<String> bm = MainWin.config.getList("Bookmark");
+		List bm = MainWin.config.getList("Bookmark");
 		
-		for (String b : bm)
-			comboURL.add(b);
+		for (Object b : bm)
+			comboURL.add((String)b);
 	
 		comboURL.setText(tmp);
 	}
@@ -487,7 +487,7 @@ public class DWBrowser extends Composite
 	@SuppressWarnings("unchecked")
 	protected boolean isBookmark(String url) 
 	{
-		List<String> bm = MainWin.config.getList("Bookmark");
+		List bm = MainWin.config.getList("Bookmark");
 		
 		if (bm.contains(url))
 			return(true);
@@ -786,10 +786,9 @@ public class DWBrowser extends Composite
 		if (MainWin.config.containsKey(exttype + "Extensions"))
 		{
 			@SuppressWarnings("unchecked")
-			List<String> exts = MainWin.config.getList(exttype + "Extensions");
-			
-			if (exts.contains(ext.toLowerCase()))
-				return(true);
+			List exts = MainWin.config.getList(exttype + "Extensions");
+
+			return exts.contains(ext.toLowerCase());
 		}
 		return false;
 	}

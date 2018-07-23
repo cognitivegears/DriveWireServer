@@ -17,6 +17,7 @@ import java.util.List;
 
 import javax.swing.SwingUtilities;
 
+import com.groupunix.drivewireui.library.LibraryItem;
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.HierarchicalConfiguration;
 import org.apache.commons.configuration.XMLConfiguration;
@@ -124,7 +125,7 @@ public class MainWin {
 	public static HierarchicalConfiguration dwconfig;
 	public static final String configfile = "drivewireUI.xml";
 
-	//public static LibraryItem[] libraryroot;
+	public static LibraryItem[] libraryroot;
 	
 	private static int currentDisk = 0;
 	
@@ -1557,7 +1558,7 @@ public class MainWin {
 					{
 						
 						@SuppressWarnings("unchecked")
-						List<String> cmdhist = config.getList("CmdHistory",null);
+						List cmdhist = config.getList("CmdHistory",null);
 						
 						if (cmdhist != null)
 						{
@@ -1565,7 +1566,7 @@ public class MainWin {
 							{
 								MainWin.cmdhistpos++;
 
-								txtYouCanEnter.setText(cmdhist.get(cmdhist.size() - MainWin.cmdhistpos));
+								txtYouCanEnter.setText((String)cmdhist.get(cmdhist.size() - MainWin.cmdhistpos));
 								txtYouCanEnter.setSelection(txtYouCanEnter.getText().length() + 1);
 								
 								e.doit = false;
@@ -1581,12 +1582,12 @@ public class MainWin {
 					if (config.getInt("CmdHistorySize",default_CmdHistorySize) > 0)
 					{
 						@SuppressWarnings("unchecked")
-						List<String> cmdhist = config.getList("CmdHistory",null);
+						List cmdhist = config.getList("CmdHistory",null);
 						
 						if (MainWin.cmdhistpos > 1)
 						{
 							MainWin.cmdhistpos--;
-							txtYouCanEnter.setText(cmdhist.get(cmdhist.size() - MainWin.cmdhistpos));
+							txtYouCanEnter.setText((String)cmdhist.get(cmdhist.size() - MainWin.cmdhistpos));
 							txtYouCanEnter.setSelection(txtYouCanEnter.getText().length() + 1);
 							
 						}
@@ -2034,7 +2035,7 @@ public class MainWin {
 	protected static void addCommandToHistory(String cmd) 
 	{
 
-		List<String> cmdhist = config.getList("CmdHistory",null);
+		List cmdhist = config.getList("CmdHistory",null);
 		
 		if (config.getInt("CmdHistorySize",default_CmdHistorySize) > 0)
 		{
@@ -2432,7 +2433,7 @@ public class MainWin {
 	@SuppressWarnings("unchecked")
 	public static void addDiskFileToHistory(String filename) 
 	{
-		List<String> diskhist = config.getList("DiskHistory",null);
+		List diskhist = config.getList("DiskHistory",null);
 		
 		
 		if (config.getInt("DiskHistorySize",default_DiskHistorySize) > 0)
@@ -2463,7 +2464,7 @@ public class MainWin {
 	
 	
 	@SuppressWarnings("unchecked")
-	public static List<String> getDiskHistory()
+	public static List<Object> getDiskHistory()
 	{
 		return(config.getList("DiskHistory",null));
 	}
@@ -2472,7 +2473,7 @@ public class MainWin {
 
 
 	@SuppressWarnings("unchecked")
-	public static List<String> getServerHistory() 
+	public static List<Object> getServerHistory()
 	{
 		return(config.getList("ServerHistory",null));
 	}
@@ -2480,7 +2481,7 @@ public class MainWin {
 	@SuppressWarnings("unchecked")
 	public static void addServerToHistory(String server) 
 	{
-		List<String> shist = config.getList("ServerHistory",null);
+		List shist = config.getList("ServerHistory",null);
 		
 		if (shist == null)
 		{

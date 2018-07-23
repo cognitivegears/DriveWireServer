@@ -34,6 +34,7 @@ import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.HierarchicalConfiguration;
 import org.apache.commons.configuration.HierarchicalConfiguration.Node;
 import org.apache.commons.configuration.XMLConfiguration;
+import org.apache.commons.configuration.tree.ConfigurationNode;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.GC;
@@ -621,9 +622,9 @@ public class UIUtils {
 
 
 
-	public static Object getAttributeVal(List<Node> attributes, String key)
+	public static Object getAttributeVal(List<ConfigurationNode> attributes, String key)
 	{
-		for (Node n : attributes)
+		for (ConfigurationNode n : attributes)
 		{
 			if (n.getName().equals(key))
 			{

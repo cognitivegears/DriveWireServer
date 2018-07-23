@@ -64,10 +64,10 @@ public class URLInputWin extends Dialog {
 	{
 		if (MainWin.getDiskHistory() != null)
 		{
-			List<String> dhist = MainWin.getDiskHistory();
-			for (String d : dhist)
+			List dhist = MainWin.getDiskHistory();
+			for (Object d : dhist)
 			{
-				cmbURL.add(d, 0);
+				cmbURL.add((String)d, 0);
 			}
 		}
 	}
